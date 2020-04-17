@@ -1,17 +1,48 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Contributions
     </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="contributeAlert()">
+
+        Update us
+        <ion-icon slot="end" name="send-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
+  <ion-progress-bar *ngIf="!contributions" type="indeterminate"></ion-progress-bar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Contributions</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div class="ion-padding">
+    <ion-text color="primary">
+      <p>What people are saying...</p>
+    </ion-text>
+  </div>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-list style="--background: transparent;" *ngIf="contributions">
+    <ion-item style="--background: transparent;" lines="full" *ngFor="let item of contributions">
+      <ion-avatar slot="start">
+        <img src="assets/covid.gif" />
+      </ion-avatar>
+      <p style="font-size: 0.9rem;">
+        <b>{{item.name ? item.name : 'Anonymous'}}</b>
+        <br>
+        <span [innerHTML] = "item.message"></span>
+        <br>
+        <span style="font-size: 0.6rem;color: lightgray;">{{item.created_at | date}}</span>
+      </p>
+      
+    </ion-item>
+  </ion-list>
+
+
+  <!-- <app-explore-container name="Tab 2 page"></app-explore-container> -->
 </ion-content>
