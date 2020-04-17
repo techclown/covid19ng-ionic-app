@@ -7,8 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ApiService {
   token: any;
   // url = 'http://127.0.0.1:8000/api/v1';
-  url ='https://covid19ng.aitechma.com/api/v1';
-  gApi = 'AIzaSyBOyaMNln_heJZUm7vyXJEUS4qA0r-qAnc';
+  url ='API_ENDPOINT_FROM_COVID19NG-LARAVEL_API_REPO';
+  gApi = 'GOOGLE_API_KEY_HERE';
 
   constructor(public http: HttpClient) { }
 
@@ -46,15 +46,4 @@ export class ApiService {
     return this.http.get(`${this.url}/contributions`, httpOptions);
   }
 
-  // getDistance(mLat, mLong, dLat, dLong) {
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       // Accept: 'application/json',
-  //       'Content-Type': 'application/json',
-  //       // Authorization: `Bearer ${this.token}`
-  //     })
-  //   };
-
-  //   return this.http.get(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${mLat},${mLong}&destinations=${dLat},${dLong}&key=${this.gApi}`);
-  // }
 }
